@@ -169,17 +169,18 @@ function DrillParticles() {
     }
   })
 
-  const particleCount = 50
+  const particleCount = 120
   const positions = new Float32Array(particleCount * 3)
 
   for (let i = 0; i < particleCount; i++) {
-    positions[i * 3] = (Math.random() - 0.5) * 0.5
-    positions[i * 3 + 1] = Math.random() * 0.3
-    positions[i * 3 + 2] = (Math.random() - 0.5) * 0.5
+    // ⬅➡ Аумақты кеңейттік
+    positions[i * 3] = (Math.random() - 0.5) * 1.5   // бұрын 0.5
+    positions[i * 3 + 1] = Math.random() * 0.8       // бұрын 0.3
+    positions[i * 3 + 2] = (Math.random() - 0.5) * 1.5
   }
 
   return (
-    <points ref={particlesRef} position={[-0.5, -1.8, 0.6]}>
+    <points ref={particlesRef} position={[0.5, -1.8, 0.2]}>
       <bufferGeometry>
         <bufferAttribute attach="attributes-position" count={particleCount} args={[positions, 3]} array={positions} itemSize={3} />
       </bufferGeometry>
